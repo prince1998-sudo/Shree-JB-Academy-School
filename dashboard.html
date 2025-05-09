@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <script src="dashboard.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <div class="dashboard-container">
@@ -235,8 +236,13 @@
             window.location.href = 'index.html';  // Redirect to Home page
         }
     </script>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+<script>
+    function toggleSidebar() {
+        document.querySelector('.sidebar').classList.toggle('show');
+    }
+</script>
+
     </body>
 </html>
-
-
-
