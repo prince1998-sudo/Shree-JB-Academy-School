@@ -1,0 +1,222 @@
+/* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+    width: 100vw;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.dashboard-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #ff9d00;  /* Orange color */
+    color: white;
+    padding: 20px;
+    display: flex;  /* Change to flexbox */
+    flex-direction: column;
+    /* height:auto;  Full viewport height */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar img.school-logo {
+    width: 100px;
+    margin-bottom: 20px;
+    align-self: center;
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.sidebar ul li {
+    margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    font-size: 14px;
+    color: #000;
+}
+
+/* Main Content Area */
+.dashboard-main {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    color: #555;
+}
+
+/* Sections */
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #003366;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #003366;
+    color: white;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffcc00;
+    color: #003366;
+}
+
+/* Responsive Adjustments */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .dashboard-main {
+        padding: 15px;
+        text-align: center;
+    }
+}
+
+/* Small Devices (Tablets and Larger Mobiles) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .dashboard-main {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .sidebar ul li a {
+        font-size: 14px;
+    }
+}
+
+/* Extra Small Devices (Small Mobiles) */
+@media (max-width: 576px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        display: none; /* Hide the sidebar on small screens */
+    }
+
+    .dashboard-main {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .dashboard-header h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    table th,
+    table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        width: 100%; /* Full-width button for mobile */
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+/* Ultra Small Devices (Very Small Mobiles) */
+@media (max-width: 400px) {
+    .dashboard-header h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    table th,
+    table td {
+        font-size: 12px; /* Smaller text for tiny screens */
+    }
+}

@@ -1,0 +1,360 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: normal;
+    background: linear-gradient(to bottom right, #8ce406, #ffffff, #fb970a,  #12c2e9, #c471ed, #f64f59);
+}
+
+header {
+    background: linear-gradient(to bottom right, #12c2e9, #c471ed, #f64f59);
+    color: #ffffff;
+    padding: 0px;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.school-logo {
+    position: absolute;
+    top: 10px;
+    left:30px;
+    width: 20px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.school-name {
+    text-align: center;
+}
+
+.school-name h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.school-logo {
+    width: 100px;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 10px;
+    font-size: 2rem;
+    padding: 3px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ffd905;
+    font-size: 2rem;
+    padding: 3px;
+}
+
+.nav-links li a:hover {
+    color: #000000;
+}
+
+/* Media Queries for Responsive Design */
+
+/* For tablets and below */
+@media (max-width: 768px) {
+    .school-logo {
+        width: 60px;
+    }
+    
+    .school-name h1 {
+        font-size: 1.5em;
+    }
+    
+    .school-name h2 {
+        font-size: 1em;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .nav-links li a {
+        font-size: 1.1em;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    .school-name h1 {
+        font-size: 1.2em;
+    }
+
+    .school-name h2 {
+        font-size: 0.8em;
+    }
+
+    .nav-links li a {
+        font-size: 1em;
+    }
+}
+
+
+.home-section {
+    background: url('jb\ school.jpg') no-repeat center center/cover;
+    height: 60vh; /* Reduce height for mobile */
+    background-size: cover; /* Ensure background image covers the section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3e2626;
+    text-align: center;
+}
+
+.home-section .hero-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+ /* Slideshow container */
+ .slideshow-container {
+    position: relative;
+    max-width: 500px;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Hide the images by default */
+.slides {
+    display:contents;
+}
+
+/* Style the images */
+img {
+    width: 100%;
+    height: 300px;
+}
+
+/* Next and previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+
+/* Position the "next" button to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Dots for navigation */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+
+.message-form{
+    display:inline-flex;
+    align-content: center;
+    border-radius: 10px;
+    padding: 10rem;
+    text-align: center;
+    padding: 0px 150px;
+}
+
+/* Animation for fade effect */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+
+.btn {
+    background-color: #ffc400;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn:hover{
+    background-color: #013f59;
+    color: #fffdfd;
+}
+
+
+section {
+    padding: 20px 20px;
+    text-align:center;
+    font-size: 19px;
+}
+
+.academic-courses {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.course {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.events-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.event {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    width: 45%;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form label, .contact-form input, .contact-form textarea {
+    width: 180%;
+    max-width: 500px;
+    margin: 0px;
+    padding: 0.5rem;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+
+footer {
+    background-color: #000000; /* Black background */
+    color: rgb(254, 254, 254); /* White text */
+    text-align: center;
+    padding: 10px 0; /* Padding for spacing */
+    font-size: 14px; /* Default font size */
+}
+
+footer i, footer a {
+    color: rgb(254, 0, 0);
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 15px; /* Adjust icon font size */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Style for contact info */
+.contact-info {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Aligns items vertically */
+    text-align: center;
+    color: rgb(254, 0, 0); /* Red text color */
+}
+
+/* Flexbox layout for phone and email */
+.contact-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Space between phone/email and copyright */
+}
+
+.contact-info .phone,
+.contact-info .email {
+    margin: 5px 10px; /* Spacing between elements */
+    display: flex;
+    align-items: center;
+}
+
+.contact-info .copyright {
+    margin-top: 10px;
+    font-size: 14px; /* Adjust font size if needed */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .contact-info {
+        font-size: 12px; /* Reduce font size for smaller screens */
+    }
+
+    .contact-row {
+        flex-direction: column; /* Stack phone and email on top of each other */
+        align-items: center;
+    }
+
+    .contact-info .copyright {
+        font-size: 12px; /* Adjust copyright font size */
+    }
+}
+

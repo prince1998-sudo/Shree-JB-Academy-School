@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admission Enquiry Form</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- jspdf CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+  <style>
+    /* Reset & Base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: "Roboto", sans-serif;
+      position: relative;
+      min-height: 100vh;
+      /* Set a fallback background color */
+      background-color: #f0f0f0;
+    }
+    
+    /* Background image via pseudo-element */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('jb school.jpg') no-repeat center center/cover;
+      opacity: 0.5;
+      z-index: -1;
+    }
+    
+    .form-container {
+      background-color: #fff;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+      margin: 40px auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header img.logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    header .name {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 5px 0;
+    }
+
+    header h2,
+    header p {
+      margin: 5px 0;
+    }
+
+    /* Form styling */
+    form {
+      width: 100%;
+      background-image: ('jb school.jpg') no-repeat center center/cover;
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    fieldset legend {
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 0 10px;
+      color: #5563DE;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .name-fields {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s;
+      font-size: 1rem;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #5563DE;
+    }
+
+    .required {
+      color: #e74c3c;
+    }
+
+    button.btn {
+      background-color: #5563DE;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s, transform 0.2s;
+      width: 100%;
+    }
+
+    button.btn:hover {
+      background-color: #3f4db7;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .name-fields {
+        flex-direction: column;
+      }
+    }
+
+    /* Fade in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <header>
+      <img src="school logo.png" alt="School Logo" class="logo" />
+      <p class="name">Shree JB Academy School</p>
+      <h2>Krishnapur-02, Bani Kanchanpur, Nepal</h2>
+      <h2>+977 980-9462237</h2>
+      <p>Admission Form</p>
+    </header>
+
+    <form id="admissionForm" action="https://formspree.io/f/xqazovpy" method="POST">
+      <!-- Student Details Section -->
+      <fieldset>
+        <legend>Student Details</legend>
+
+        <!-- Name -->
+        <label for="firstName">Name <span class="required">*</span></label>
+        <div class="name-fields">
+          <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+          <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+        </div>
+
+        <!-- Contact Details -->
+        <label for="mobileNumber">Contact Details <span class="required">*</span></label>
+        <div class="name-fields">
+          <input type="text" id="mobileNumber" name="mobileNumber" placeholder="Mobile Number" required />
+          <input type="email" id="email" name="email" placeholder="Email" required />
+        </div>
+
+        <!-- Date of Birth -->
+        <label for="dob">Date of Birth <span class="required">*</span></label>
+        <input type="date" id="dob" name="dob" required />
+
+        <!-- Citizenship -->
+        <label for="citizenship">Citizenship <span class="required">*</span></label>
+        <select id="citizenship" name="citizenship" required>
+          <option value="" disabled selected>Select</option>
+          <option value="Nepali">Nepal</option>
+          <option value="Indian">India</option>
+          <option value="USA">USA</option>
+          <option value="Australia">Australia</option>
+          <option value="Canada">Canada</option>
+          <option value="Japan">Japan</option>
+          <option value="Korea">Korea</option>
+          <option value="Srilanka">Srilanka</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Africa">Africa</option>
+          <option value="China">China</option>
+          <option value="Bhutan">Bhutan</option>
+          <option value="Maldives">Maldives</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Rusia">Rusia</option>
+          <option value="Nigeria">Nigeria</option>
+        </select>
+
+        <!-- Gender -->
+        <label for="gender">Gender <span class="required">*</span></label>
+        <select id="gender" name="gender" required>
+          <option value="" disabled selected>Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <!-- Current School Information -->
+        <label for="schoolName">Current School Name</label>
+        <input type="text" id="schoolName" name="schoolName" placeholder="Enter School Name" />
+      </fieldset>
+
+      <!-- Parents Details Section -->
+      <fieldset>
+        <legend>Parents Details</legend>
+        <!-- Father's Details -->
+        <div class="name-fields">
+          <input type="text" id="fatherFirstName" name="fatherFirstName" placeholder="Father's First Name" required />
+          <input type="text" id="fatherLastName" name="fatherLastName" placeholder="Father's Last Name" required />
+        </div>
+        <!-- Mother's Details -->
+        <div class="name-fields">
+          <input type="text" id="motherFirstName" name="motherFirstName" placeholder="Mother's First Name" required />
+          <input type="text" id="motherLastName" name="motherLastName" placeholder="Mother's Last Name" required />
+        </div>
+      </fieldset>
+
+      <!-- Submit Button -->
+      <button type="button" onclick="downloadAdmissionForm()" class="btn">Submit & Download PDF</button>
+    </form>
+  </div>
+
+  <script>
+    function downloadAdmissionForm() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      // Header
+      doc.setFontSize(22);
+      doc.text("Shree JB Academy School", 20, 20);
+      doc.setFontSize(16);
+      doc.text("Admission Enquiry Form", 20, 30);
+
+      // Fetch values from the form fields
+      const firstName = document.getElementById("firstName").value || "";
+      const lastName = document.getElementById("lastName").value || "";
+      const mobileNumber = document.getElementById("mobileNumber").value || "";
+      const email = document.getElementById("email").value || "";
+      const dob = document.getElementById("dob").value || "";
+      const citizenship = document.getElementById("citizenship").value || "";
+      const gender = document.getElementById("gender").value || "";
+      const schoolName = document.getElementById("schoolName").value || "";
+      const fatherFirstName = document.getElementById("fatherFirstName").value || "";
+      const fatherLastName = document.getElementById("fatherLastName").value || "";
+      const motherFirstName = document.getElementById("motherFirstName").value || "";
+      const motherLastName = document.getElementById("motherLastName").value || "";
+
+      doc.setFontSize(12);
+      let yOffset = 50;
+      doc.text(`Name: ${firstName} ${lastName}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Mobile: ${mobileNumber}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Email: ${email}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Date of Birth: ${dob}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Citizenship: ${citizenship}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Gender: ${gender}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Current School: ${schoolName}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Father's Name: ${fatherFirstName} ${fatherLastName}`, 20, yOffset);
+      yOffset += 10;
+      doc.text(`Mother's Name: ${motherFirstName} ${motherLastName}`, 20, yOffset);
+
+      // Save the PDF
+      doc.save("admission-form.pdf");
+    }
+  </script>
+</body>
+</html>

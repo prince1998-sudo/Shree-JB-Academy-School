@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Shree JB Academy</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="dashboard.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <img src="school logo.png" alt="School Logo" class="school-logo">
+            <h2>Shree JB Academy</h2>
+            <nav>
+                <ul>
+                    <li><a href="#profile"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#timetable"><i class="fas fa-calendar-alt"></i> Timetable</a></li>
+                    <li><a href="#assignments"><i class="fas fa-tasks"></i> Assignments</a></li>
+                    <li><a href="#exams"><i class="fas fa-file-alt"></i> Exams</a></li>
+                    <li><a href="#attendance"><i class="fas fa-check-circle"></i> Attendance</a></li>
+                    <li><a href="#notices"><i class="fas fa-bell"></i> Notices</a></li>
+                    <li><a href="#online-classes"><i class="fas fa-video"></i> Online Classes</a></li>
+                    <li><a href="#library"><i class="fas fa-book"></i> Library</a></li>
+                    <li><a href="#fees"><i class="fas fa-wallet"></i> Fees & Payments</a></li>
+                    <li><a href="#extracurricular"><i class="fas fa-futbol"></i> Extracurricular</a></li>
+                    <li><a href="#support"><i class="fas fa-info-circle"></i> Support</a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <button onclick="logout()">Log Out</button> <!-- Log Out button -->
+        </aside>
+
+        <!-- Main Dashboard Area -->
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <h1>Welcome, <span id="studentName"></span></h1>
+                <p>Class: <span id="studentClass"></span> | Roll No: <span id="studentRoll"></span></p>
+                <p>Today is <span id="currentDate"></span></p>
+            </header>
+
+            <!-- Profile Section -->
+            <section id="profile">
+                <h2>Profile</h2>
+                <div id="profileView">
+                    <img id="profilePhoto" src="default-profile.png" alt="Profile Photo" width="100">
+                    <p>Name: <span id="profileName"></span></p>
+                    <p>Email: <span id="profileEmail"></span></p>
+                    <p>Class: <span id="profileClass"></span></p>
+                    <p>Roll No: <span id="profileRoll"></span></p>
+                    <button onclick="editProfile()">Edit Profile</button>
+                </div>
+
+                <div id="profileEdit" style="display: none;">
+                    <label for="editName">Name:</label>
+                    <input type="text" id="editName" value="">
+
+                    <label for="editEmail">Email:</label>
+                    <input type="email" id="editEmail" value="">
+
+                    <label for="editClass">Class:</label>
+                    <input type="text" id="editClass" value="">
+
+                    <label for="editRoll">Roll No:</label>
+                    <input type="text" id="editRoll" value="">
+
+                    <label for="editPhoto">Profile Photo:</label>
+                    <input type="file" id="editPhoto" accept="image/*">
+
+                    <button onclick="saveProfile()">Save Changes</button>
+                </div>
+            </section>
+
+            <!-- Timetable, Assignments, Exams, etc. (unchanged sections) -->
+            <section id="timetable">
+                <h2>Timetable</h2>
+                <table>
+                    <tr><th>Day</th><th>Subject</th><th>Time</th></tr>
+                    <tr><td>Monday</td><td>Mathematics</td><td>9:00 AM</td></tr>
+                    <tr><td>Tuesday</td><td>Science</td><td>10:00 AM</td></tr>
+                    <!-- Add more rows as needed -->
+                </table>
+            </section>
+
+            <!-- Assignments Section -->
+            <section id="assignments">
+                <h2>Assignments</h2>
+                <ul>
+                    <li>Mathematics Assignment - Due: 1st Oct</li>
+                    <li>English Essay - Due: 5th Oct</li>
+                    <!-- Add more assignments as needed -->
+                </ul>
+            </section>
+
+            <!-- Exams Section -->
+            <section id="exams">
+                <h2>Exams</h2>
+                <p>Upcoming Exam: Science - 15th October</p>
+                <p>Previous Exam Result: Mathematics - 80%</p>
+            </section>
+
+            <!-- Attendance Section -->
+            <section id="attendance">
+                <h2>Attendance</h2>
+                <p>Attendance Percentage: 95%</p>
+                <p>Last Absence: 5th September</p>
+            </section>
+
+            <!-- Notices Section -->
+            <section id="notices">
+                <h2>Notices</h2>
+                <p>Sports Day on 10th October.</p>
+                <p>Parent-Teacher Meeting on 15th October.</p>
+            </section>
+
+            <!-- Online Classes Section -->
+            <section id="online-classes">
+                <h2>Online Classes</h2>
+                <p>Next Online Class: English - Zoom Link</p>
+            </section>
+
+            <!-- Library Section -->
+            <section id="library">
+                <h2>Library</h2>
+                <p>Borrowed Book: "Physics for Class 10" - Due: 10th October</p>
+                <button>Reserve New Book</button>
+            </section>
+
+            <!-- Fees & Payments Section -->
+            <section id="fees">
+                <h2>Fees & Payments</h2>
+                <p>Total Fee Due: $500</p>
+                <button>Pay Now</button>
+            </section>
+
+            <!-- Extracurricular Section -->
+            <section id="extracurricular">
+                <h2>Extracurricular</h2>
+                <p>Registered Activity: Football</p>
+                <p>Next Match: 8th October</p>
+            </section>
+
+            <!-- Support Section -->
+            <section id="support">
+                <h2>Support</h2>
+                <p>Need help? Contact support at <a href="mailto:shreejbacademy@gmail.com">shreejbacademy@gmail.com</a></p>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings">
+                <h2>Settings</h2>
+                <button onclick="window.location.href='changepassword.html'">Change Password</button>
+                <button>Notification Preferences</button>
+            </section>
+        </main>
+    </div>
+            </section>
+
+            <!-- Add other sections like assignments, exams, attendance, etc. -->
+        </main>
+    </div>
+
+    <script>
+        // Load and display student info from localStorage
+        const student = JSON.parse(localStorage.getItem('currentUser')) || {
+            name: 'Student Name',
+            email: 'student@example.com',
+            class: '10A',
+            roll: '23',
+            photo: 'default-profile.png'
+        };
+
+        document.getElementById('studentName').textContent = student.name;
+        document.getElementById('profileName').textContent = student.name;
+        document.getElementById('studentClass').textContent = student.class;
+        document.getElementById('profileClass').textContent = student.class;
+        document.getElementById('studentRoll').textContent = student.roll;
+        document.getElementById('profileRoll').textContent = student.roll;
+        document.getElementById('profileEmail').textContent = student.email;
+        document.getElementById('profilePhoto').src = student.photo;
+
+        // Display current date
+        const currentDate = new Date();
+        document.getElementById("currentDate").textContent = currentDate.toDateString();
+
+        // Edit Profile Functionality
+        function editProfile() {
+            document.getElementById('profileView').style.display = 'none';
+            document.getElementById('profileEdit').style.display = 'block';
+
+            document.getElementById('editName').value = student.name;
+            document.getElementById('editEmail').value = student.email;
+            document.getElementById('editClass').value = student.class;
+            document.getElementById('editRoll').value = student.roll;
+        }
+
+        // Save Profile Changes
+        function saveProfile() {
+            student.name = document.getElementById('editName').value;
+            student.email = document.getElementById('editEmail').value;
+            student.class = document.getElementById('editClass').value;
+            student.roll = document.getElementById('editRoll').value;
+
+            const photoInput = document.getElementById('editPhoto');
+            if (photoInput.files && photoInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    student.photo = e.target.result;
+                    document.getElementById('profilePhoto').src = student.photo;
+                };
+                reader.readAsDataURL(photoInput.files[0]);
+            }
+
+            // Save updated profile to localStorage
+            localStorage.setItem('currentUser', JSON.stringify(student));
+
+            // Update the displayed profile
+            document.getElementById('studentName').textContent = student.name;
+            document.getElementById('profileName').textContent = student.name;
+            document.getElementById('studentClass').textContent = student.class;
+            document.getElementById('profileClass').textContent = student.class;
+            document.getElementById('studentRoll').textContent = student.roll;
+            document.getElementById('profileRoll').textContent = student.roll;
+            document.getElementById('profileEmail').textContent = student.email;
+
+            document.getElementById('profileEdit').style.display = 'none';
+            document.getElementById('profileView').style.display = 'block';
+        }
+
+        // Log out functionality
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';  // Redirect to Home page
+        }
+    </script>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,185 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+body {
+    background-color: #ffffff;
+    padding:10px;
+}
+
+.logo {
+    position: absolute; /* Position the logo absolutely */
+    top: 8px; /* Align 10px from the top */
+    left: -5px; /* Align 10px from the left */
+    width: 100px; /* Set the width of the logo */
+    height: auto; /* Maintain the aspect ratio */
+    padding-bottom: 10px; /* Optional: Add some space below the logo */
+}
+
+
+/* Form Container */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #c2f2d0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(209, 27, 27);
+}
+
+text-color{
+    text-decoration: #34a853;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 0px;
+    color: #003bfe;
+    font-size: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 0px;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    padding: 2px;
+
+}
+h3{
+    text-align: center;
+    margin-bottom: 0px;
+    color: rgb(255, 0, 0);
+    font-size: 1.5rem;
+    padding: 0px;
+}
+p{
+    text-align: center;
+    margin-bottom: 0px;
+    color: rgb(51, 0, 255);
+    font-size: 2rem;
+    padding: 2px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Style for the form container */
+.form-container {
+    position: relative; /* To position the overlay correctly */
+    overflow: hidden; /* Ensures the pseudo-element doesn't overflow */
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+}
+
+/* The actual background image with blur effect */
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("jb school.jpg"); /* Placeholder */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8pxpx); /* Adjust the blur level here */
+    z-index: -1; /* Places the image behind the content */
+}
+
+/* Additional styling to ensure text is readable */
+.form-container > * {
+    position: relative;
+    z-index: 1; /* Ensures form content is above the blurred image */
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #34a853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2e8b4e;
+}
+
+.required {
+    color: red;
+}
+
+/* Name Fields */
+.name-fields {
+    display: flex;
+    gap: 10px;
+}
+
+.name-fields input {
+    width: calc(50% - 5px);
+}
+
+/* Address Fields */
+.address-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.address-fields input,
+.address-fields select {
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Proficiency Options */
+.proficiency-options {
+    display: flex;
+    gap: 20px;
+}
+
+.proficiency-options label {
+    font-weight: normal;
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 480px) {
+    /* Adjust logo size and positioning */
+    .school-logo {
+        top: 10px; /* Adjusted for mobile */
+        left: 10px; /* Adjusted for mobile */
+        width: 80px; /* Smaller width for mobile */
+    }
+}
+.name{
+    font-size: 3rem;
+}

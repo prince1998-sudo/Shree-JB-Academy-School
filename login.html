@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+
+  <!-- Google Font (optional) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* BODY & BACKGROUND */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      overflow-x: hidden; /* Avoid horizontal scrolling on small screens */
+    }
+
+    /* LOGIN CONTAINER */
+    .login-container {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 90%;
+      max-width: 400px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* HEADER */
+    .login-container header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .login-container header .logo {
+      width: 80px;
+      margin-bottom: 0.5rem;
+    }
+    .login-container header h1 {
+      font-weight: 600;
+      color: #0072ff;
+      font-size: 1.5rem;
+    }
+
+    /* FORM */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #555;
+    }
+
+    /* Input fields */
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #0072ff;
+      outline: none;
+    }
+
+    /* Password container: icon + input in one row */
+    .password-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .password-container input {
+      padding-right: 2.5rem; /* Enough space for icon */
+    }
+    .password-container i {
+      position: absolute;
+      right: 1rem;
+      color: #666;
+      cursor: pointer;
+      transition: color 0.3s;
+      /* Fixed width & font-size so icon doesn’t shift on toggle */
+      width: 24px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .password-container i:hover {
+      color: #0072ff;
+    }
+
+    /* SUBMIT BUTTON */
+    button[type="submit"] {
+      background: #0072ff;
+      color: #fff;
+      font-weight: 500;
+      border: none;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: #0056c1;
+      transform: translateY(-2px);
+    }
+
+    /* LINKS BELOW FORM */
+    .options {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+    .options a {
+      color: #0072ff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .options a:hover {
+      color: #0056c1;
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    footer a {
+      color: #0072ff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* MEDIA QUERIES (for smaller devices) */
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 1.5rem;
+      }
+      .login-container header h1 {
+        font-size: 1.3rem;
+      }
+      button[type="submit"] {
+        font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <header>
+      <img src="school logo.png" alt="School Logo" class="logo" />
+      <h1>Student Login</h1>
+    </header>
+
+    <form id="loginForm" onsubmit="return handleLogin(event)">
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div>
+        <label for="password">Password:</label>
+        <div class="password-container">
+          <input type="password" id="password" name="password" required />
+          <i class="fa fa-eye" id="togglePassword"></i>
+        </div>
+      </div>
+
+      <button type="submit">Login</button>
+
+      <div class="options">
+        <a href="forgotpassword.html">Forgot Password?</a>
+        <a href="signup.html">Create an Account</a>
+      </div>
+    </form>
+
+    <footer>
+      <p>&copy; 2024 Shree JB Academy. All rights reserved.</p>
+      <a href="privary-policy.html">Privacy Policy</a>
+    </footer>
+  </div>
+
+  <script>
+    // Hover to Show Password
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordField = document.getElementById('password');
+
+    // On mouseenter => show password
+    togglePassword.addEventListener('mouseenter', () => {
+      passwordField.setAttribute('type', 'text');
+    });
+
+    // On mouseleave => hide password
+    togglePassword.addEventListener('mouseleave', () => {
+      passwordField.setAttribute('type', 'password');
+    });
+
+    // Handle Login
+    function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const passwordValue = passwordField.value;
+
+      // Retrieve user data from localStorage
+      const user = JSON.parse(localStorage.getItem(email));
+
+      if (user && user.password === passwordValue) {
+        // Redirect to dashboard
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Invalid email or password. Please try again.');
+      }
+    }
+  </script>
+</body>
+</html>

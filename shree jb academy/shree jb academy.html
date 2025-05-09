@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.3">
+    <title>Shree JB Academy School</title>
+    <link rel="stylesheet" href="shree jb academy.css">
+    <link rel="admission-form.html">
+    <link rel="admission-form.css">
+    <link rel="admission-form.js">
+    <link rel="admission fom pdf.css">
+    <link rel="send_email.php">
+    <link rel="sendEmail.php">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <img src="school logo.png" alt="School Logo" class="school-logo">
+            <div class="school-name">
+                <h1>Shree J.B Academy</h1>
+                <h2>Krishnapur-02 Bani Kanchanpur</h2>
+                <p><h2>Nepal</h2></p>
+                
+            </div>
+            <div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#admission">Admission</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul></div></div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home-section">
+       <!-- <div class="hero-text">
+            <p><h2>Excellence in Education</h2></p>
+            <a href="#admission" class="btn">Join Us</a>
+        </div> -->
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>Shree JB Academy School has a rich history of academic excellence, providing students with a holistic educational experience.</p>
+    </section>
+
+
+    <!-- Slideshow container -->
+      <!-- About Section -->
+    <section id="gallery" class="section">
+        <h2>Gallery</h2>
+    </section>
+    <div class="slideshow-container">
+
+        <!-- Full-width images with captions -->
+        <div class="slides fade">
+            <img src="students.jpg" alt="students">
+            <div class="text">All students</div>
+        </div>
+
+        <div class="slides fade">
+            <img src="male staff.jpg" alt="male staff">
+            <div class="text">Male Staff</div>
+        </div>
+
+        <div class="slides fade">
+            <img src="female staff.jpg" alt="female staff">
+            <div class="text">Female staff</div>
+        </div>
+
+        <div class="slides fade">
+            <img src="jb school.jpg" alt="school">
+            <div class="text">School</div>
+        </div>
+
+        <div class="slides fade">
+            <img src="award image.jpg" alt="award">
+            <div class="text">Awards</div>
+        </div>
+
+        <div class="slides fade">
+            <img src="all staff with students.jpg" alt="allstaff">
+            <div class="text">Staff with Students</div>
+        </div>
+
+        <div class="slides fade">
+            <img src="staff.jpg" alt="staff">
+            <div class="text">Staff</div>
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <!-- Dots to indicate current image -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function changeSlide(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            var dots = document.getElementsByClassName("dot");
+
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            // Remove active class from all dots
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            // Display the current slide and make the current dot active
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(function() {
+            changeSlide(1);
+        }, 4000);  // Change slide every 5 seconds
+    </script>
+
+
+    <!-- Academics Section -->
+    <section id="academics" class="section">
+        <h2>Academics</h2>
+        <div class="academic-courses">
+            <div class="course">
+                <h3>Primary Education</h3>
+                <p>We offer a strong foundation for students through our primary school program.</p>
+            </div>
+            <div class="course">
+                <h3>Secondary Education</h3>
+                <p>Our secondary education ensures that students excel in their chosen fields.</p>
+            </div>
+            <div class="course">
+                <h3>Higher Secondary</h3>
+                <p>We prepare students for competitive exams and higher education.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Section -->
+    <section id="admission" class="section">
+        <h2>Admission</h2>
+        <p>Apply now for the academic session 2024-2025. We offer admissions from Kindergarten to Grade 12.</p>
+        <a href="admission-form.html" class="btn">Fill The Form</a>
+       <!--- <button onclick="downloadAdmissionForm()" class="btn">Download Form as PDF</button> -->
+
+
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section">
+        <h2>Events</h2>
+        <div class="events-list">
+            <div class="event">
+                <h3>Annual Sports Day</h3>
+                <p>Date: 20th September 2024</p>
+            </div>
+            <div class="event">
+                <h3>Science Exhibition</h3>
+                <p>Date: 10th October 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+     <div class="Contact-Us-form">
+    <section id="contact" class="section">
+        <div class="message">
+        <h2>Contact Us</h2>
+        <div class="message-form">
+        <form id="ContactUs" action="https://formspree.io/f/xqazovpy" method="POST" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="number">Phone No:</label>
+            <input type="text" id="text" name="text" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        </div>
+        </div>
+    </section>
+    </div>
+
+    <footer>
+        <div class="contact-info">
+            <div class="phone">
+                <i class="fa fa-phone"></i> Phone No: +977 980-9462237
+            </div>
+            <div class="email">
+                <a href="mailto:shreejbacademy@gmail.com"><i class="fa fa-envelope"> shreejbacademy@gmail.com</a></i>
+            </div>
+            <div class="copyright">
+                © 2024 Shree JB Academy School. All Rights Reserved.
+            </div>
+        </div>
+        
+    </footer>
+
+   <script>
+        function downloadAdmissionForm() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+    
+            doc.setFontSize(22);
+            doc.text("Shree JB Academy School", 20, 20);
+            doc.setFontSize(16);
+            doc.text("Admission Enquiry Form", 20, 30);
+    
+            // Fetching the values from the form fields
+            const firstName = document.getElementById("firstName").value || '';
+            const lastName = document.getElementById("lastName").value || '';
+            const dob = document.getElementById("dob").value || '';
+            const citizenship = document.getElementById("citizenship").value || '';
+            const gender = document.getElementById("gender").value || '';
+            const schoolName = document.getElementById("schoolName").value || '';
+            const parentFirstName = document.getElementById("parentFirstName").value || '';
+            const parentLastName = document.getElementById("parentLastName").value || '';
+    
+            doc.setFontSize(12);
+            let yOffset = 50;
+            doc.text(`Name: ${firstName} ${lastName}`, 20, yOffset);
+            yOffset += 10;
+            doc.text(`Date of Birth: ${dob}`, 20, yOffset);
+            yOffset += 10;
+            doc.text(`Citizenship: ${citizenship}`, 20, yOffset);
+            yOffset += 10;
+            doc.text(`Gender: ${gender}`, 20, yOffset);
+            yOffset += 10;
+            doc.text(`Current School: ${schoolName}`, 20, yOffset);
+            yOffset += 10;
+            doc.text(`Parent's Name: ${parentFirstName} ${parentLastName}`, 20, yOffset);
+    
+            // Add some space before saving the PDF
+            yOffset += 20;
+    
+            doc.save("admission-form.pdf");
+        }
+    </script>
+</body>
+</html>

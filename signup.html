@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <img src="school logo.png" alt="School Logo" class="logo">
+        <h2>Create Account</h2>
+        <form id="signupForm" onsubmit="return handleSignup(event)">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="options">
+            <a href="login.html">Already have an account? Login here.</a>
+        </div>
+    </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Save user credentials to localStorage
+            const user = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password
+            };
+
+            localStorage.setItem('currentUser', JSON.stringify(user));
+
+            // Redirect to dashboard page after signup
+            alert('Account created successfully!');
+             window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

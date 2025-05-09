@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.3">
+    <title>Admission Enquiry Form</title>
+    <link rel="stylesheet" href="admission-form.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+        
+    <div class="form-container"> 
+        <div>
+            <img src="school logo.png" alt="school Logo" class="logo">
+            <p class="name">Shree JB Academy School</p>
+            <h2 align="center">Krishnapur-02, Bani Kanchanpur, Nepal</h2>
+            <h2>+977 980-9462237</h2>
+            <div>
+                <p align="center">Admission Enquiry Form</p>
+            </div>
+        </div>
+        <div class="text-color">
+        <form id="admissionForm" action="https://formspree.io/f/xqazovpy" method="POST">
+            <!-- Student Details Section -->
+            <!--<p><h3 align="center">Student Details</h3></p> -->
+            <!-- Name -->
+            <label for="firstName">Name <span class="required">*</span></label>
+            <div class="name-fields">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+            </div>
+            <label for="Mobile Number">Contact Details <span class="required">*</span></label>
+            <div class="name-fields">
+                <input type="text" id="Mobile Number" name="Mobile Number" placeholder="Mobile Number" required>
+                <input type="text" id="Email" name="Email" placeholder="Email" required>
+            </div>
+
+            <!-- Date of Birth -->
+            <label for="DOB">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="DOB" name="DOB" required>
+
+            <!-- Citizenship -->
+            <label for"Citizenship">Citizenship<span class="required">*</span></label>
+                <select id="Citizenship" name="Citizenship" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="Nepali">Nepal</option>
+                    <option value="Indian">India</option>
+                    <option value="USA">USA</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Japan">Japan</option>
+                    <option value="Korea">Korea</option>
+                    <option value="Srilanka">Srilanka</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Africa">Africa</option>
+                    <option value="China">China</option>
+                    <option value="Bhutan">Bhutan</option>
+                    <option value="Maldives">Maldives</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Rusia">Rusia</option>
+                    <option value="Nigeria">Nigeria</option>
+                </select>
+
+            <!-- Gender -->
+            <label for="Gender">Gender <span class="required">*</span></label>
+            <select id="Gender" name="Gender" required>
+                <option value="" disabled selected>Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <!-- Current School Information -->
+            <label for="SchoolName">Current School Name</label>
+            <input type="text" id="SchoolName" name="SchoolName">
+
+            <!-- Contact Details -->
+            <h3>Parents Details</h3>
+            <div class="name-fields">
+                <input type="text" id="ParentFirstName" name="ParentFirstName" placeholder="Father First Name" required>
+                <input type="text" id="ParentLastName" name="ParentLastName" placeholder="Father Last Name" required>
+            </div>
+            <div class="name-fields">
+                <input type="text" id="ParentFirstName" name="ParentFirstName" placeholder="Mother First Name" required>
+                <input type="text" id="ParentLastName" name="ParentLastName" placeholder="Mother Last Name" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button onclick="downloadAdmissionForm()" class="btn">Submit & Download Form</button>
+        </form>
+        
+       <!-- <script>
+            function setBackgroundImage() {
+                const formContainer = document.querySelector('.form-container');
+                
+                if (formContainer) {
+                    formContainer.style.backgroundImage = 'url("jb school.jpg")';
+                    formContainer.style.backgroundSize = 'cover';
+                    formContainer.style.backgroundPosition = 'center';
+                    formContainer.style.backgroundRepeat = 'no-repeat';
+                }
+            }
+        
+            // Call the function to set the background image when the page loads
+            window.onload = setBackgroundImage;
+        </script> -->
+        
+        <script>
+            function downloadAdmissionForm() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+        
+                doc.setFontSize(22);
+                doc.text("Shree JB Academy School", 20, 20);
+                doc.setFontSize(16);
+                doc.text("Admission Enquiry Form", 20, 30);
+        
+                // Fetching the values from the form fields
+                const firstName = document.getElementById("firstName").value || '';
+                const lastName = document.getElementById("lastName").value || '';
+                const dob = document.getElementById("dob").value || '';
+                const citizenship = document.getElementById("citizenship").value || '';
+                const gender = document.getElementById("gender").value || '';
+                const schoolName = document.getElementById("schoolName").value || '';
+                const parentFirstName = document.getElementById("parentFirstName").value || '';
+                const parentLastName = document.getElementById("parentLastName").value || '';
+        
+                doc.setFontSize(12);
+                let yOffset = 50;
+                doc.text(`Name: ${firstName} ${lastName}`, 20, yOffset);
+                yOffset += 10;
+                doc.text(`Date of Birth: ${dob}`, 20, yOffset);
+                yOffset += 10;
+                doc.text(`Citizenship: ${citizenship}`, 20, yOffset);
+                yOffset += 10;
+                doc.text(`Gender: ${gender}`, 20, yOffset);
+                yOffset += 10;
+                doc.text(`Current School: ${schoolName}`, 20, yOffset);
+                yOffset += 10;
+                doc.text(`Parent's Name: ${parentFirstName} ${parentLastName}`, 20, yOffset);
+        
+                // Add some space before saving the PDF
+                yOffset += 20;
+        
+                doc.save("admission-form.pdf");
+            }
+        </script>
+        </div>
+    </div>
+</body>
+</html>
