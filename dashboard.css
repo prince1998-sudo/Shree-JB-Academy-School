@@ -1,19 +1,17 @@
-/* General Layout */
+/* Base Layout */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    width: 100vw;
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
+/* Container for sidebar and main content */
 .dashboard-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; /* Allows wrapping on smaller devices */
-    height: 100%;
+    flex: 1;
 }
 
 /* Sidebar */
@@ -37,7 +35,7 @@ body {
 .sidebar h2 {
     font-size: 18px;
     margin-bottom: 30px;
-    color: #000000;
+    color: #000;
 }
 
 .sidebar ul {
@@ -67,21 +65,18 @@ body {
     color: #000;
 }
 
-/* Main Content Area */
+/* Main Content */
 .dashboard-main {
     flex-grow: 1;
     padding: 20px;
     background-color: #fff;
     overflow-y: auto;
-}
-
-.dashboard-header {
-    margin-bottom: 30px;
+    width: 100%;
 }
 
 .dashboard-header h1 {
     color: #003366;
-    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-size: 28px;
     margin-bottom: 5px;
 }
 
@@ -89,7 +84,6 @@ body {
     color: #555;
 }
 
-/* Sections */
 section {
     margin-bottom: 30px;
 }
@@ -99,7 +93,6 @@ h2 {
     margin-bottom: 10px;
     border-bottom: 2px solid #ffcc00;
     padding-bottom: 5px;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
 }
 
 table {
@@ -135,74 +128,44 @@ button:hover {
     color: #003366;
 }
 
-/* Toggle Button for Mobile */
+/* Toggle Button */
 .menu-toggle {
     display: none;
-    background-color: #003366;
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
     position: fixed;
     top: 10px;
     left: 10px;
-    z-index: 1000;
+    z-index: 1001;
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Responsive Adjustments */
-
-/* Medium Devices (Tablets) */
-@media (max-width: 1024px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .dashboard-main {
-        padding: 15px;
-    }
-}
-
-/* Small Devices (Tablets and Larger Mobiles) */
+/* Responsive Styles */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .dashboard-main {
-        padding: 15px;
-    }
-
-    .sidebar ul li a {
-        font-size: 14px;
-    }
-}
-
-/* Extra Small Devices (Small Mobiles) */
-@media (max-width: 576px) {
-    body {
-        flex-direction: column;
+    .menu-toggle {
+        display: block;
     }
 
     .sidebar {
-        display: none;
-    }
-
-    .sidebar.show {
-        display: flex;
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh;
-        z-index: 999;
+        height: 100%;
+        transform: translateX(-100%);
+        z-index: 1000;
         width: 80%;
-        background-color: #ff9d00;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
     }
 
     .dashboard-main {
-        padding: 10px;
-        width: 100%;
+        padding: 15px;
     }
 
     table {
@@ -213,29 +176,33 @@ button:hover {
 
     button {
         width: 100%;
-        padding: 12px;
-        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    table th,
+    table td {
+        font-size: 14px;
     }
 }
 
-/* Ultra Small Devices (Very Small Mobiles) */
 @media (max-width: 400px) {
     .dashboard-header h1 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     h2 {
         font-size: 16px;
     }
 
-    button {
-        padding: 10px;
-        font-size: 14px;
-    }
-
     table th,
     table td {
         font-size: 12px;
-        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
     }
 }
