@@ -451,9 +451,18 @@ button:hover {
 
     <script>
         function toggleSidebar() {
-          document.querySelector('.sidebar').classList.toggle('active');
+            document.querySelector('.sidebar').classList.toggle('active');
         }
-      </script>
+        
+        // Hide sidebar when a nav link is clicked (on mobile)
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.sidebar').classList.remove('active');
+                }
+            });
+        });
+        </script>
 
     </body>
 </html>
